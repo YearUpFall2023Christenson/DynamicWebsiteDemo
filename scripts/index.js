@@ -12,6 +12,7 @@ function init(){
     populateCategoriesDropdown();
 
 
+
 }
 
 
@@ -91,12 +92,22 @@ function addJokeToContainer(joke){
 
     flushCollapseDiv.appendChild(accordionBody);
 
+    accordionItemDiv.appendChild(flushCollapseDiv);
 
 
 }
 
 function showMeTheJokesBtnClicked(){
+    jokesContainer.innerHTML = "";
+
     //identify the selected category, and loop through and show those jokes!
 
+    let selectedCategory = categoriesSelect.value;
+    
+    for(let dadJoke of jokes.dadJokes){
+        if(dadJoke.category == selectedCategory){
+            addJokeToContainer(dadJoke);
+        }
+    }
 
 }
